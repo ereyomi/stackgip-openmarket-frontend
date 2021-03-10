@@ -68,7 +68,7 @@ const route: Routes = [
         path: "seller",
         canActivate: [AuthGuard],
         component: DashboardComponent,
-        resolve: { data: sellerApproveStatusApproveRouteResolver},
+        resolve: { data: sellerApproveStatusApproveRouteResolver },
         children: [
           {
             path: "",
@@ -103,4 +103,4 @@ const route: Routes = [
   imports: [RouterModule.forRoot(route, { enableTracing: true }), CommonModule],
   exports: [RouterModule],
 })
-export class AppRouteModule {}
+export class AppRouteModule { }

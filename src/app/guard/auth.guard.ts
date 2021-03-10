@@ -31,6 +31,7 @@ export class AuthGuard implements CanActivate {
 
     this.socialAuthService.authState.subscribe(user => socialUser = user);
     const siginData = this.authService.GetSignInData();
+    console.log(siginData);
     if (siginData || socialUser) {
       isLogin = siginData.canLogin;
       isLogin = socialUser != null;
