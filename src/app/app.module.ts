@@ -64,6 +64,7 @@ import { InfiniteScrollComponent } from './shared/infinite-scroll/Infinite-scrol
 import { AddToCartComponent } from './components/add-to-cart/add-to-cart.component';
 import { SellerRegisterationFormComponent } from "./components/seller/seller-registeration-form/seller-registeration-form.component";
 import {FacebookLoginProvider, GoogleLoginProvider, SocialAuthServiceConfig, SocialLoginModule} from "angularx-social-login";
+import { NgxSliderModule } from '@angular-slider/ngx-slider';
 
 @NgModule({
   declarations: [
@@ -122,8 +123,10 @@ import {FacebookLoginProvider, GoogleLoginProvider, SocialAuthServiceConfig, Soc
     ToastrModule.forRoot(toastOptions),
     CommonModule,
     SharedModule,
+    NgxSliderModule,
     NgxPaginationModule,
     SocialLoginModule,
+    NgxSliderModule,
     StoreModule.forRoot(
       { counterReducer },
       {
@@ -152,13 +155,13 @@ import {FacebookLoginProvider, GoogleLoginProvider, SocialAuthServiceConfig, Soc
           {
             id: GoogleLoginProvider.PROVIDER_ID,
             provider: new GoogleLoginProvider(
-              '956222060687-e1lptm6hn64rh2htlr0jt4igjtg4e51u.apps.googleusercontent.com'
+              environment.googleClientId
             )
           },
           {
             id: FacebookLoginProvider.PROVIDER_ID,
             provider: new FacebookLoginProvider(
-              '840620949857020'
+              environment.facebookAppId
             )
           }
         ]

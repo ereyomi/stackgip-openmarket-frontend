@@ -21,10 +21,10 @@
             <span class="uk-text-muted"> {{ productDetail.category.name }} </span> <br />
             {{ productDetail.name }}
           </td>
-          <td>NGN {{ productDetail.price }}</td>
+          <td>NGN {{ numberWithCommas(productDetail.price) }}</td>
           <td>{{ productDetail.unitSold }}</td>
           <td>{{ productDetail.unit }}</td>
-          <td>NGN {{ productDetail.price * productDetail.unit }}</td>
+          <td>NGN {{ numberWithCommas(productDetail.price * productDetail.unit) }}</td>
           <td>
             <div class="uk-inline">
               <button class="uk-button uk-button-default" type="button">

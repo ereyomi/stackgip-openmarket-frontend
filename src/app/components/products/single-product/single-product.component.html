@@ -27,10 +27,10 @@
         style="text-decoration: line-through"
         *ngIf="product.price > product.previousPrice"
       >
-        N{{ product.previousPrice }}
+        N{{ numberWithCommas(product.previousPrice) }}
       </span>
       |
-      <span class="uk-text-bold">N {{ product.price }}</span>
+      <span class="uk-text-bold">N {{ numberWithCommas(product.price) }}</span>
       <br />
     </div>
     <div class="uk-text-center">

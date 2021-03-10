@@ -31,7 +31,7 @@
               </td>
               <td>
                 <span class="uk-badge backgound-dark-green">{{invoice.orders.length}}</span>
-                <span> NGN {{orderService.getPrice(invoice.orders)}} </span>
+                <span> NGN {{numberWithCommas(orderService.getPrice(invoice.orders))}} </span>
               </td>
               <td>
                 <button [routerLink]="['detail', invoice.id,invoice.userId]"

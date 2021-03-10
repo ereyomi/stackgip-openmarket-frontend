@@ -31,10 +31,10 @@
                     <td>Name: </td><td>{{product.data.name}}</td>
                 </tr>
                 <tr>
-                    <td>Price: </td><td>{{product.data.price}}</td>
+                    <td>Price: </td><td>NGN {{numberWithCommas(product.data.price)}}</td>
                 </tr>
                 <tr>
-                    <td>Previous Price: </td><td>{{product.data.previousPrice}}</td>
+                    <td>Previous Price: </td><td>NGN {{numberWithCommas(product.data.previousPrice)}}</td>
                 </tr>
                 <tr>
                     <td>Category: </td><td>{{product.data.category.name}}</td>
@@ -57,7 +57,7 @@
                                 <tr *ngFor="let shipment of product.data.productShipments">
                                     <td>{{shipment.state}}</td>
                                     <td>{{shipment.city}}</td>
-                                    <td>{{shipment.cost}}</td>
+                                    <td>NGN {{numberWithCommas(shipment.cost)}}</td>
                                 </tr>
                             </tbody>
                         </table>
@@ -78,7 +78,7 @@
                                 <tr *ngFor="let option of product.data.productOptions">
                                     <td>{{option.title}}</td>
                                     <td>{{option.value}}</td>
-                                    <td>{{option.cost}}</td>
+                                    <td>NGN {{numberWithCommas(option.cost)}}</td>
                                 </tr>
                             </tbody>
                         </table>

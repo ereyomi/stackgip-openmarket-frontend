@@ -82,7 +82,7 @@
               <td>{{ order.product.name }}</td>
 
               <td>{{ order.unit }}</td>
-              <td>{{ order.price.toLocaleString() }}</td>
+              <td>NGN {{ numberWithCommas(order.price.toLocaleString()) }}</td>
               <td>{{ order.status }}</td>
             </tr>
           </tbody>

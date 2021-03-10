@@ -92,7 +92,7 @@ export class LoginComponent implements OnInit {
         this.ngxService.stopLoader("loader-01");
         this.authService.SetAuthLocalStorage(a);
         this.decodedJwt = this.jwtHelperService.getDecodedAccessToken(a.data.auth_token);
-        this.expirationCounter(this.decodedJwt.exp - this.decodedJwt.iat);
+        this.expirationCounter((this.decodedJwt.exp - this.decodedJwt.iat)*1000);
         if (a.status == "success") {
           this.toast.success("login successful", "notification");
 
@@ -134,11 +134,14 @@ export class LoginComponent implements OnInit {
   }
 
   signInWithGoogle(): void {
+    this.ngxService.startLoader("loader-01");
     this.socialAuthService.initState.subscribe(() => {
       this.socialAuthService.signIn(GoogleLoginProvider.PROVIDER_ID)
         .then(data => {
           this.authService.GoogleSignIn(data.idToken)
             .subscribe(signInResponse => this.authService.SetAuthLocalStorage(signInResponse))
+          this.router.navigate([""]);
+          this.ngxService.stopLoader("loader-01");
         });
     })
   }
@@ -150,6 +153,7 @@ export class LoginComponent implements OnInit {
         .then(data => {
           this.authService.FacebookSignIn(data.id, data.authToken)
             .subscribe(signInResponse => this.authService.SetAuthLocalStorage(signInResponse))
+          this.router.navigate([""]);
           this.ngxService.stopLoader("loader-01");
         })
     })

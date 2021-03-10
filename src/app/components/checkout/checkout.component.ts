@@ -63,7 +63,7 @@ export class CheckoutComponent implements OnInit {
 
   initlizeForm() {
     const user = localStorage.getItem("user");
-
+    
     if (user) {
       const userJson: IUser = JSON.parse(user);
       this.checkoutForm = this.fb.group({
@@ -74,7 +74,7 @@ export class CheckoutComponent implements OnInit {
         address: [userJson.address, [Validators.required]],
         country: [userJson.alpha2CountryCode, [Validators.required]],
         state: [userJson.state, [Validators.required]],
-        city: ["", [Validators.required]],
+        city: [userJson.city, [Validators.required]],
         additionalInfo: "",
       });
     } else {

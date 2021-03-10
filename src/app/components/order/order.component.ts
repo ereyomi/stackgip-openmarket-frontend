@@ -10,18 +10,20 @@ import { Component, OnInit } from "@angular/core";
 import { AuthService } from "src/app/services/auth.service";
 
 import * as _ from "lodash";
+import { numberWithCommas } from './../../helpers/number-format';
 @Component({
   selector: "app-order",
   templateUrl: "./order.component.html",
   styleUrls: ["./order.component.css"],
 })
 export class OrderComponent implements OnInit {
-  constructor(private invoiceService: InvoiceService) {}
-  invoices: InvoiceModel[];
+  numberWithCommas:Function = numberWithCommas
   filteredInvoice: InvoiceModel[];
-  page: IPage;
   filterType = invoiceStatus;
-
+  invoices: InvoiceModel[];
+  page: IPage;
+  
+  constructor(private invoiceService: InvoiceService) {}
   ngOnInit(): void {
     const user = getLoggedInUser();
     if (user) {

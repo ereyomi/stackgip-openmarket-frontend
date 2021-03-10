@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Order } from './../../../../models/order.model';
 import { formatDate } from './../../../../helpers/date-format';
+import { numberWithCommas } from './../../../../helpers/number-format';
 
 @Component({
   selector: 'app-order-view-more',
@@ -8,8 +9,9 @@ import { formatDate } from './../../../../helpers/date-format';
   styleUrls: ['./order-view-more.component.css']
 })
 export class OrderViewMoreComponent implements OnInit {
-  order:Order;
+  numberWithCommas:Function = numberWithCommas
   formatDate:Function;
+  order:Order;
 
   constructor() {
     this.formatDate = formatDate;

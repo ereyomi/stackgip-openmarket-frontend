@@ -3,6 +3,7 @@ import { ProductModel } from  "../../../../models/products.model";
 import { ProductsService } from "../../../../services/products/products.service";
 import { ToastrService } from "./../../../../services/toastr.service";
 import { getLoggedInUser } from "src/app/helpers/userUtility";
+import { numberWithCommas } from './../../../../helpers/number-format';
 import uikit from "uikit";
 
 @Component({
@@ -13,6 +14,7 @@ import uikit from "uikit";
 export class ProductItemComponent implements OnInit {
   @Output() productIdSend = new EventEmitter();
   @Output() viewedMore = new EventEmitter();
+  numberWithCommas:Function = numberWithCommas
   user = getLoggedInUser();
   productDetails: ProductModel[];
   pageNumber: number;

@@ -6,6 +6,7 @@ import { ActivatedRoute, Router } from "@angular/router";
 import { environment } from "src/environments/environment";
 declare var PaystackPop: any;
 import uikit from "uikit";
+import { numberWithCommas } from './../../helpers/number-format';
 
 @Component({
   selector: "app-order-invoice",
@@ -13,8 +14,9 @@ import uikit from "uikit";
   styleUrls: ["./order-invoice.component.css"],
 })
 export class OrderInvoiceComponent implements OnInit {
-  invoice: InvoiceModel;
+  numberWithCommas:Function = numberWithCommas
   user = getLoggedInUser();
+  invoice: InvoiceModel;
   total: number;
   filterType = invoiceStatus;
   constructor(

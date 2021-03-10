@@ -5,6 +5,7 @@ import { OrderDetail } from "../../../../models/order.model";
 import { UserService } from './../../../../services/user/user.service';
 import { fullInvoiceStatus } from './../../../../models/invoice.model';
 import { formatDate } from './../../../../helpers/date-format';
+import { numberWithCommas } from './../../../../helpers/number-format';
 
 @Component({
   selector: 'app-order-list',
@@ -12,6 +13,7 @@ import { formatDate } from './../../../../helpers/date-format';
   styleUrls: ['./order-list.component.css']
 })
 export class OrderListComponent implements OnInit {
+  numberWithCommas:Function = numberWithCommas
   status:string;
   user = getLoggedInUser();
   public orderList:OrderDetail[]; 

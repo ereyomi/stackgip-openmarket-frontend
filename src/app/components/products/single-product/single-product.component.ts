@@ -8,6 +8,7 @@ import { Component, OnInit, Input, ViewChild, ElementRef} from "@angular/core";
 import { Store } from "@ngrx/store";
 import { AppState } from "src/app/reducers";
 import { AddToCart } from "src/app/reducers/action/cart.actions";
+import { numberWithCommas } from './../../../helpers/number-format';
 
 @Component({
   selector: "app-single-product",
@@ -18,6 +19,7 @@ export class SingleProductComponent implements OnInit {
   constructor(private toast: ToastrService, private store: Store<AppState>) {}
   @ViewChild('closeAddToCart') closeAddToCart: ElementRef<HTMLElement>
   @Input() product;
+  numberWithCommas:Function = numberWithCommas
   ngOnInit(): void {}
 
   addToCart({product,orderedUnit,shipmentOption}) {

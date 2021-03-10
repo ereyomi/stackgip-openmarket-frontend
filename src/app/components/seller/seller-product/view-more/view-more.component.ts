@@ -1,8 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { ProductsService } from './../../../../services/products/products.service';
+import { numberWithCommas } from './../../../../helpers/number-format';
 import { ProductResponse } from 'src/app/models/products.model';
-import { Observable } from 'rxjs';
 import { formatDate } from './../../../../helpers/date-format';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-view-more',
@@ -10,6 +11,7 @@ import { formatDate } from './../../../../helpers/date-format';
   styleUrls: ['./view-more.component.css']
 })
 export class ViewMoreComponent implements OnInit {
+  numberWithCommas:Function = numberWithCommas
   product$:Observable<ProductResponse>;
   formatDate:Function;
 
